@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "homepage": "https://skylarspen3-sudo.github.io/arthur-bday-app",
+  "homepage": "https://skylarspen3-sudo.github.io/Arthur-s-Birthday",
           "scripts": {
             "start": "react-scripts start",
             "build": "react-scripts build",
