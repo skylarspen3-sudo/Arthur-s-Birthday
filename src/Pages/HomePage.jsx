@@ -36,7 +36,7 @@ export default function HomePage() {
       <div className="home-page-title">
         {useTypewriter("Happy  Birthday  Cowpoke!!")}
       </div>
-      <img src="../../public/arthur-morgan.gif" alt="Arthur Morgan Birthday GIF" />
+      <img src="/arthur-morgan.gif" alt="Arthur Morgan Birthday GIF" />
 
     </section>
   );
