@@ -1,0 +1,281 @@
+/* === Global Theme Colors === */
+:root {
+  --deep-black: #121212;
+  --fiery-red: #e62e2e;
+  --vivid-yellow: #ffcc00;
+  --gold: #e6af2e;
+  --light: #f8f8f8;
+  --text-on-dark: rgba(255,255,255,0.87);
+  --card-bg: #222;
+}
+
+/* === Global Base Styles === */
+body {
+  background: var(--deep-black);
+  color: var(--text-on-dark);
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Grenze Gotisch", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--fiery-red);
+  text-shadow: 2px 2px 0 var(--fiery-red);
+  margin: 1rem 0;
+}
+
+.page-container {
+  padding: 1rem 1rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.memories-container {
+  height: calc(100vh - 72px);
+  overflow-y: scroll;
+  padding: 1rem;
+  margin-top: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.memories-container::-webkit-scrollbar {
+  display: none;
+}
+
+
+img { width: 100%; height: auto; }
+
+button, .button {
+  background: var(--vivid-yellow);
+  color: var(--deep-black);
+  border: 2px solid var(--fiery-red);
+  border-radius: 50px;
+  padding: 0.7rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: inherit;
+}
+
+button:hover, .button:hover {
+  background: var(--gold);
+  color: var(--deep-black);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 2px 1rem rgba(230,46,46,0.5);
+}
+
+a { color: var(--vivid-yellow); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+hr { border: 2px solid var(--fiery-red); margin: 2rem auto; width: 80%; }
+
+/* === Navigation Bar === */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background: var(--deep-black);
+  backdrop-filter: blur(8px);
+  z-index: 1000; /* Base navbar level */
+  height: 72px;
+  border-bottom: 2px solid var(--vivid-yellow);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  color: var(--fiery-red);
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  border-radius: 48px;
+  background: var(--deep-black);
+  border: 2px solid var(--fiery-red);
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.nav-links li a:hover, 
+.nav-links li a:focus, 
+.nav-links li a.active {
+  background: var(--deep-black);
+  color: var(--fiery-red);
+  border-color: var(--vivid-yellow);
+  box-shadow: 0 0 12px var(--vivid-yellow);
+  transform: translateY(-2px);
+}
+
+/* === Card and Dashboard Styles === */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  margin: 1rem 0;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 2px solid var(--vivid-yellow);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(230,46,46,0.3);
+  border-color: var(--fiery-red);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.card p {
+  color: var(--light);
+  padding: 1rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* === Home Page Styles === */
+.home-page-title {
+  color: var(--fiery-red);
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin: 2rem 0 1rem;
+  font-family: 'Luckiest Guy', cursive;
+  text-shadow: 2px 2px 0 var(--deep-black);
+}
+
+.home-caption {
+  color: var(--light);
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem auto 2rem;
+  max-width: 80%;
+}
+
+.home-typewrite {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.home-typewrite span {
+  visibility: hidden;
+  animation: revealLetter 0.001s linear forwards;
+}
+
+@keyframes revealLetter {
+  from { visibility: hidden; }
+  to { visibility: visible; }
+}
+
+/* === Cake and Candle Styles === */
+.cake-wrapper {
+  position: relative;
+  max-width: 320px;
+  margin: 2rem auto;
+}
+
+.cake-img { display: block; margin: 0 auto; }
+
+.candle {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Luckiest Guy', cursive;
+  color: var(--fiery-red);
+  font-size: 2.8rem;
+  animation: flicker 2s infinite alternate;
+}
+
+@keyframes flicker {
+  0%, 100% { 
+    opacity: 1; 
+    text-shadow: 0 0 10px var(--vivid-yellow), 0 0 20px var(--vivid-yellow), 0 0 30px var(--vivid-yellow); 
+  }
+  50% { 
+    opacity: 0.85; 
+    text-shadow: 0 0 4px var(--vivid-yellow); 
+  }
+}
+
+/* === Animations === */
+.fade-in { 
+  animation: fadeIn 0.8s ease-out forwards; 
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* === Mobile Responsive === */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #000c;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+  
+  .nav-links.show { 
+    max-height: 280px; 
+    padding: 1rem 0; 
+    gap: 0.5rem; 
+  }
+  
+  .nav-links li a { 
+    border-radius: 0; 
+    margin: 0.5rem 1rem; 
+    border: none; 
+  }
+  
+  .home-page-title {
+    font-size: 2.2rem;
+  }
+  
+  .page-container {
+    padding: 4rem 1rem 2rem;
+  }
+}
+
+/* Add this to your App.css */
+.memories-container {
+  height: calc(100vh - 72px); /* Viewport height minus navbar height */
+  overflow-y: auto;           /* Allows vertical scrolling */
+  padding: 1rem;              /* Optional: adds some space around cards */
+}

@@ -1,0 +1,57 @@
+/* --- GLOBAL THEME COLORS --- */
+
+
+/* --- NAVBAR --- */
+.navbar {
+  position: fixed;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--deep-black);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  height: 72px;
+  border-bottom: 2px solid var(--vivid-yellow);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  color: var(--fiery-red);
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  border-radius: 48px;
+  background: var(--deep-black);
+  border: 2px solid var(--fiery-red);
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  font-family: "Grenze Gotisch", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus,
+.nav-links li a.active {
+  background: var(--deep-black);
+  color: var(--fiery-red);
+  border-color: var(--gold);
+  box-shadow: 0 0 12px var(--gold);
+  transform: translateY(-2px);
+}
+
+/* No mobile stuff—navbar is always horizontal/centered */
