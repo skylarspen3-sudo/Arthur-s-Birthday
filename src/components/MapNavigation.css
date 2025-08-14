@@ -1,164 +1,120 @@
-.mini-map {
-  position: fixed;
-  top: 20px;
-  left: 20px;
+.map-nav-header {
+  height: 80px;
+  width: 100%;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-  border: 3px solid var(--vivid-yellow);
-  border-radius: 12px;
-  padding: 1rem;
+  position: relative;
   z-index: 1000;
-  min-width: 200px;
-  max-width: 250px;
-  backdrop-filter: blur(8px);
-  box-shadow: 
-    0 0 20px rgba(255, 204, 0, 0.3),
-    0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+  border-bottom: 3px solid var(--vivid-yellow);
+}
+
+.mini-map {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: inherit;
+  border: none;
+  padding: 0 2rem;
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
   transition: all 0.3s ease;
 }
 
-.mini-map.minimized {
-  min-width: auto;
-  max-width: 140px;
-  padding: 0.5rem;
-}
-
 .map-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  color: var(--vivid-yellow);
-  font-weight: bold;
-  font-size: large;
-  text-shadow: 1px 1px 2px #000;
-}
-
-.mini-map.minimized .map-header {
-  margin-bottom: 0;
-}
-
-.map-title {
-  font-family: "Grenze Gotisch", serif;
-  font-size: large;
-  font-weight: 400;
-  font-style: normal;
+  display: none;
 }
 
 .minimize-btn {
-  background: var(--fiery-red);
-  border: 1px solid var(--vivid-yellow);
-  color: white;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: large;
-  transition: all 0.2s ease;
-}
-
-.minimize-btn:hover {
-  background: var(--vivid-yellow);
-  color: var(--deep-black);
-  transform: scale(1.05);
+  display: none;
 }
 
 .mini-locations {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
 
 .mini-location {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.6rem;
-  background: rgba(139, 69, 19, 0.3);
-  border: 2px solid #654321;
-  border-radius: 8px;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.2rem;
+  height: 60px;
   text-decoration: none;
-  color: var(--light);
-  transition: all 0.3s ease;
-  font-size: large;
+  color: #fff;
+  transition: all 0.2s ease;
   font-weight: 600;
+  background: transparent;
+  border-right: 1px solid rgba(255, 204, 0, 0.15);
+}
+
+.mini-location:first-child {
+  border-left: 1px solid rgba(255, 204, 0, 0.15);
+}
+
+.mini-location:last-child {
+  border-right: none;
 }
 
 .mini-location:hover {
   background: rgba(139, 69, 19, 0.6);
-  border-color: var(--vivid-yellow);
-  transform: translateX(4px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  color: white;
+  border-right-color: rgba(255, 204, 0, 0.3);
 }
 
 .mini-location.active {
   background: linear-gradient(135deg, var(--fiery-red), #ff6b6b);
-  border-color: var(--vivid-yellow);
   color: white;
-  box-shadow: 0 0 12px rgba(230, 46, 46, 0.4);
+  box-shadow: inset 0 0 10px rgba(230, 46, 46, 0.4);
 }
 
 .location-emoji {
-  font-size: 1.2rem;
-  min-width: 20px;
-  text-align: center;
+  font-size: 1.3rem;
   filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.5));
 }
 
 .location-name {
   font-family: "Grenze Gotisch", serif;
-  font-optical-sizing: auto;
-  font-size: large;
+  font-size: 1rem;
   font-weight: 400;
-  font-style: normal;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Mobile positioning */
 @media (max-width: 768px) {
-  .mini-map {
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    max-width: none;
-    min-width: auto;
+  .map-nav-header {
+    height: 70px;
+    padding: 0 1rem;
   }
-  
-  .mini-map.minimized {
-    right: auto;
-    max-width: 120px;
-  }
-  
-  .mini-locations {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  
   .mini-location {
-    flex: 1;
-    min-width: 80px;
-    justify-content: center;
-    padding: 0.4rem;
-  }
-  
-  .location-name {
-    font-size: large;
+    padding: 0 0.8rem;
+    height: 50px;
+    font-size: 0.9rem;
   }
 }
 
-/* Very small screens */
 @media (max-width: 480px) {
-  .mini-map:not(.minimized) {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    margin: 1rem auto;
-    max-width: 300px;
+  .location-name {
+    display: none;
   }
-  
-  .mini-map.minimized {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    right: auto;
+  .mini-location {
+    padding: 0 0.4rem;
   }
+}
+
+/* If you want to hide minimized-style (optional) */
+.mini-map.minimized,
+.mini-map.minimized * {
+  display: none;
 }

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import '../../src/App.css';
-
+import "../../src/App.css";
 
 function useTypewriter(text, delay = 150) {
   const [visibleChars, setVisibleChars] = useState(0);
@@ -13,31 +12,24 @@ function useTypewriter(text, delay = 150) {
   }, [visibleChars, text, delay]);
 
   return (
-    <span className="home-typewrite">
+    <>
       {Array.from(text).map((char, i) => (
-        <span
-          key={i}
-          style={{
-            animationDelay: `${i * delay}ms`,
-            animationDuration: "0.001s",
-            opacity: i < visibleChars ? 1 : 0
-          }}
-        >
+        <span key={i} style={{ visibility: i < visibleChars ? "visible" : "hidden" }}>
           {char === ' ' ? '\u00A0' : char}
         </span>
       ))}
-    </span>
+    </>
   );
 }
 
 export default function HomePage() {
   return (
-    <section className="fade-in">
-      <div className="home-page-title">
-        {useTypewriter("Happy  Birthday  Cowpoke!!")}
+    <div className="background-container">
+      <div className="centered-text">
+        <h1 className="home-page-title">
+          {useTypewriter("Happy Birthday Cowpoke! Your Journey Begins here.")}
+        </h1>
       </div>
-      <img src="/Arthur-s-Birthday/arthur-morgan.gif" alt="Arthur Morgan Birthday GIF" />
-
-    </section>
+    </div>
   );
 }

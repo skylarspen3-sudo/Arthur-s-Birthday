@@ -4,52 +4,34 @@ import './HonorSystem.css';
 const HONOR_ACTIONS = {
   good: [
     { 
-      action: "Share a Memory", 
+      action: "Eat Healthy", 
       points: 25, 
       emoji: "💝",
-      description: "Tell someone how much they mean to you"
+      description: "Taking Care is Very important"
     },
     { 
-      action: "Give a Compliment", 
+      action: "Sleep Early", 
       points: 15, 
       emoji: "🌟",
-      description: "Brighten someone's day with kind words"
+      description: "Prioritize rest and rejuvenation"
     },
     { 
-      action: "Help a Stranger", 
+      action: "Text your loved ones", 
       points: 30, 
       emoji: "🤝",
-      description: "Lend a helping hand to those in need"
+      description: "Reach out and show you care"
     },
     { 
-      action: "Donate to Charity", 
+      action: "Be kind", 
       points: 40, 
       emoji: "💰",
-      description: "Share your fortune with the less fortunate"
+      description: "Brighten someone's day with kind words"
     },
     { 
       action: "Listen to Someone", 
       points: 20, 
       emoji: "👂",
       description: "Be there for someone who needs to talk"
-    },
-    { 
-      action: "Share Your Food", 
-      points: 18, 
-      emoji: "🍕",
-      description: "Share a meal with someone hungry"
-    },
-    { 
-      action: "Return Lost Item", 
-      points: 35, 
-      emoji: "🔑",
-      description: "Return something someone lost"
-    },
-    { 
-      action: "Volunteer Time", 
-      points: 45, 
-      emoji: "🙋",
-      description: "Give your time to help others"
     }
   ],
   bad: [
@@ -60,34 +42,16 @@ const HONOR_ACTIONS = {
       description: "Stir up some trouble for fun"
     },
     { 
-      action: "Steal the Spotlight", 
+      action: "Smoke", 
       points: -15, 
       emoji: "💡",
-      description: "Make it all about you"
+      description: "Harm your body and mind"
     },
     { 
       action: "Ignore Someone", 
       points: -25, 
       emoji: "👻",
       description: "Give someone the cold shoulder"
-    },
-    { 
-      action: "Cause Chaos", 
-      points: -35, 
-      emoji: "💥",
-      description: "Create some mayhem and mischief"
-    },
-    { 
-      action: "Spread Gossip", 
-      points: -18, 
-      emoji: "🗣️",
-      description: "Share someone's secrets"
-    },
-    { 
-      action: "Skip the Line", 
-      points: -12, 
-      emoji: "🏃",
-      description: "Cut in front of others waiting"
     },
     { 
       action: "Be Selfish", 

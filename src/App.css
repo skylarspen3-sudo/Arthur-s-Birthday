@@ -279,3 +279,53 @@ hr { border: 2px solid var(--fiery-red); margin: 2rem auto; width: 80%; }
   overflow-y: auto;           /* Allows vertical scrolling */
   padding: 1rem;              /* Optional: adds some space around cards */
 }
+
+.music-control {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 999;
+}
+.music-control.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.play-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+  color: var(--vivid-yellow);
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+}
+
+.background-container {
+  background-image: url('/Birthday.jpeg'); /* Change to your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.centered-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 4rem; /* Big text */
+  font-family: 'Luckiest Guy', cursive;
+  text-align: center;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Extra contrast */
+  width: 100%;
+  max-width: 400px; /* Adjust this to control where it wraps */
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  margin: 0 auto; /* Keep it centered */
+}
